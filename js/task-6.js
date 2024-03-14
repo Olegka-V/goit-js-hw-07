@@ -21,9 +21,8 @@ remove.addEventListener("click", destroyBoxes);
 
 
 function btnCreate() {
-  if (inputNum.value < 100) {
-    box.innerHTML = "";
-    createBox(inputNum.value);
+  if (inputNum.value <= 100) {
+    createBoxes(inputNum.value);
 } else {
   alert("Your number more 100");
   }
@@ -36,16 +35,14 @@ function destroyBoxes() {
 }
 
 
-function createBox(amount) {
+function createBoxes(amount) {
   let params = 30;
   const arr = [];
   for (let i = 0; i < amount; i++) {
-    params +=  10;
     const square = `<div class="square" style="width: ${params}px; height: ${params}px; background-color:${getRandomHexColor()}"></div></div>`;
+    params +=  10;
     arr.push(square);
   }
-  box.insertAdjacentHTML("beforeend", arr.join(""));
+  box.innerHTML = ("beforeend", arr.join(""));
 } 
 
-
-console.dir(box);
